@@ -1,11 +1,11 @@
 import React from 'react';
-import UserProvider from './contexts/UserContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Navbar from './components/navBar/NavBar';
 import Footer from './components/footer/Footer';
+import { AuthProvider } from './contexts/AuthContext.tsx'
 
 //USER -> GAMES -> POSTS 
 
@@ -34,6 +34,7 @@ function App() {
 
   return (
     <>
+    <AuthProvider>
       <BrowserRouter>
         <Navbar />
         <div className='min-h-[80vh]'>
@@ -47,6 +48,8 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      </AuthProvider>
+
     </>
   );
 }
